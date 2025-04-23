@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ASTI ONLINE SHOP - Menu Utama</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root {
+      --primary: #ec407a;
+      --secondary: #fce4ec;
+      --text: #333;
+      --accent: #d81b60;
+    }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fce4ec, #f8bbd0);
+      color: var(--text);
+    }
+    header {
+      background: white;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      color: var(--primary);
+      font-size: 2.2rem;
+      margin-bottom: 0.4rem;
+    }
+    header p {
+      color: #666;
+      font-size: 1rem;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      background: var(--primary);
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    nav a {
+      background-color: white;
+      color: var(--primary);
+      text-decoration: none;
+      margin: 0.5rem 1rem;
+      padding: 0.5rem 1rem;
+      font-weight: 600;
+      border-radius: 20px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+    nav a:hover {
+      background-color: var(--secondary);
+      transform: translateY(-2px);
+      color: var(--accent);
+    }
+    .clock {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: var(--accent);
+    }
+    main {
+      padding: 2rem;
+      text-align: center;
+    }
+    main h2 {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+    }
+    main p {
+      font-size: 1.1rem;
+      max-width: 700px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .produk-unggulan, .testimoni {
+      padding: 2rem 1rem;
+      text-align: center;
+    }
+    .produk-list, .testi-list {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    .produk-item, .testi-item {
+      background: white;
+      border-radius: 10px;
+      padding: 1rem;
+      width: 250px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+    }
+    .produk-item:hover {
+      transform: scale(1.05);
+    }
+    .produk-item img, .testi-item img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 0.5rem;
+    }
+    .produk-item h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+    .produk-item p {
+      font-size: 0.9rem;
+    }
+    .testi-item p {
+      font-style: italic;
+    }
+    .testi-item strong {
+      display: block;
+      margin-top: 0.5rem;
+      color: var(--primary);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ASTI ONLINE SHOP</h1>
+    <p>Tampil cantik dan fashionable setiap hari bersama ASTI!</p>
+  </header>
+
+  <nav>
+    <a href="#">Beranda</a>
+    <a href="#produk">Produk</a>
+    <a href="#tentang">Tentang Kami</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <div class="clock" id="clock"></div>
+
+  <main>
+    <h2>Selamat Datang di ASTI ONLINE SHOP</h2>
+    <p>Kami menyediakan berbagai produk fashion wanita terkini seperti blouse, celana, hijab, hingga aksesoris. Temukan penampilan terbaikmu bersama ASTI!</p>
+  </main>
+
+  <section class="produk-unggulan" id="produk">
+    <h2>Produk Unggulan</h2>
+    <div class="produk-list">
+      <div class="produk-item">
+        <img src="https://via.placeholder.com/250x250/ff80ab/ffffff?text=Blouse+Modern" alt="Blouse">
+        <h3>Blouse Modern</h3>
+        <p>Blouse elegan dengan bahan nyaman dan desain kekinian.</p>
+      </div>
+      <div class="produk-item">
+        <img src="https://via.placeholder.com/250x250/f48fb1/ffffff?text=Hijab+Syar'i" alt="Hijab">
+        <h3>Hijab Syar'i</h3>
+        <p>Hijab panjang dengan motif trendi dan bahan adem.</p>
+      </div>
+      <div class="produk-item">
+        <img src="https://via.placeholder.com/250x250/f06292/ffffff?text=Tas+Fashion" alt="Tas">
+        <h3>Tas Fashion</h3>
+        <p>Tas selempang cantik cocok untuk acara formal dan santai.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimoni">
+    <h2>Apa Kata Mereka?</h2>
+    <div class="testi-list">
+      <div class="testi-item">
+        <p>"Produk dari ASTI bener-bener kece! Suka banget sama blousenya 💖"</p>
+        <strong>- Rina, Medan</strong>
+      </div>
+      <div class="testi-item">
+        <p>"Pelayanannya ramah dan cepat. Kualitas barangnya juga bagus!"</p>
+        <strong>- Sari, Aceh</strong>
+      </div>
+      <div class="testi-item">
+        <p>"Hijabnya nyaman banget dipakai seharian. Makasih ASTI!"</p>
+        <strong>- Dita, Jakarta</strong>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    function updateClock() {
+      const now = new Date();
+      const timeString = now.toLocaleTimeString('id-ID');
+      document.getElementById('clock').textContent = `Jam sekarang: ${timeString}`;
+    }
+    setInterval(updateClock, 1000);
+    updateClock();
+  </script>
+
+</body>
+</html>
