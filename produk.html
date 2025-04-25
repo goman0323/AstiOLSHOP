@@ -125,6 +125,23 @@
     .btn:hover {
       background: #ad1457;
     }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #d81b60;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #ad1457;
+    }
   </style>
 </head>
 <body>
@@ -142,6 +159,8 @@
 <main class="container" id="product-container">
   <!-- Produk akan muncul di sini -->
 </main>
+
+<a href="#" class="back-btn" onclick="goBack()">Kembali</a>
 
 <script>
   // Data produk
@@ -213,16 +232,15 @@
     const container = document.getElementById('product-container');
     container.innerHTML = '';
     products.forEach(product => {
-      const productHTML = `
-        <div class="product">
+      const productHTML = 
+        `<div class="product">
           <img src="${product.image}" alt="${product.name}">
           <div class="product-content">
             <h2>${product.name}</h2>
             <p>${product.price}</p>
             <a class="btn" href="${product.link}" target="_blank">Beli Sekarang</a>
           </div>
-        </div>
-      `;
+        </div>`;
       container.innerHTML += productHTML;
     });
   }
@@ -234,6 +252,11 @@
       product.name.toLowerCase().includes(query)
     );
     displayProducts(filteredProducts);
+  }
+
+  // Fungsi tombol kembali
+  function goBack() {
+    window.history.back();
   }
 
   // Tampilkan semua produk saat halaman pertama dimuat
