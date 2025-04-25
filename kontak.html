@@ -112,6 +112,25 @@
       font-size: 0.9em;
     }
 
+    /* Tombol Kembali */
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background-color: #ec407a;
+      color: white;
+      font-size: 1.2rem;
+      padding: 0.8rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #d81b60;
+    }
+
     @media (max-width: 768px) {
       .kontak-grid {
         flex-direction: column;
@@ -120,6 +139,9 @@
   </style>
 </head>
 <body>
+
+  <!-- Tombol Kembali di posisi kiri atas -->
+  <button class="back-btn" onclick="window.history.back()">Kembali</button>
 
   <header>
     <h1>Hubungi Asti OLShop</h1>
