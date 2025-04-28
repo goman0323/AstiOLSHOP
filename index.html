@@ -13,11 +13,10 @@
   <meta property="og:image" content="https://via.placeholder.com/1200x630/ff80ab/ffffff?text=ASTI+Online+Shop">
   <meta property="og:url" content="https://goman0323.github.io/AstiOLSHOP/">
   <meta property="og:type" content="website">
-  <link rel="icon" href="https://via.placeholder.com/32x32/ff80ab/ffffff?text=A" type="image/png">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+  
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
     :root {
       --primary: #ec407a;
       --secondary: #fce4ec;
@@ -36,18 +35,28 @@
     }
     header {
       background: white;
-      padding: 1.5rem 1rem;
+      padding: 1rem;
       text-align: center;
+      position: relative;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
     }
     header h1 {
       color: var(--primary);
-      font-size: 2.2rem;
-      margin-bottom: 0.4rem;
+      font-size: 2rem;
     }
     header p {
       color: #666;
       font-size: 1rem;
+      margin-top: 0.5rem;
+    }
+    .hamburger {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      font-size: 1.8rem;
+      cursor: pointer;
+      color: var(--accent);
+      display: none;
     }
     nav {
       display: flex;
@@ -55,27 +64,26 @@
       flex-wrap: wrap;
       background: var(--primary);
       padding: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      gap: 1rem;
     }
     nav a {
-      background-color: white;
+      background: white;
       color: var(--primary);
       text-decoration: none;
-      margin: 0.5rem 1rem;
       padding: 0.5rem 1rem;
       font-weight: 600;
       border-radius: 20px;
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
       transition: background 0.3s ease, transform 0.2s ease;
     }
     nav a:hover {
-      background-color: var(--secondary);
+      background: var(--secondary);
       transform: translateY(-2px);
       color: var(--accent);
     }
     .clock {
       text-align: center;
-      margin-top: 1rem;
+      margin: 1rem 0;
       font-size: 1.2rem;
       color: var(--accent);
     }
@@ -89,10 +97,10 @@
       margin-bottom: 1rem;
     }
     main p {
-      font-size: 1.1rem;
       max-width: 700px;
       margin: 0 auto;
       line-height: 1.6;
+      font-size: 1.1rem;
     }
     .produk-unggulan, .testimoni {
       padding: 2rem 1rem;
@@ -125,7 +133,7 @@
       color: var(--accent);
       margin-bottom: 0.5rem;
     }
-    .produk-item p {
+    .produk-item p, .testi-item p {
       font-size: 0.9rem;
     }
     .testi-item p {
@@ -143,10 +151,6 @@
       padding: 2rem 1rem;
       margin-top: 2rem;
     }
-    footer h3 {
-      font-size: 1.5rem;
-      margin-bottom: 1rem;
-    }
     .sosmed a {
       color: white;
       margin: 0 0.5rem;
@@ -156,21 +160,35 @@
     .sosmed a:hover {
       color: var(--secondary);
     }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: block;
+      }
+      nav {
+        flex-direction: column;
+        display: none;
+      }
+      nav.show {
+        display: flex;
+      }
+    }
   </style>
 </head>
+
 <body>
 
   <header>
     <h1>ASTI ONLINE SHOP</h1>
     <p>Tampil cantik dan fashionable setiap hari bersama ASTI!</p>
+    <div class="hamburger" id="hamburger">☰</div>
+    <nav id="nav">
+      <a href="#">Beranda</a>
+      <a href="produk.html">Produk</a>
+      <a href="tentang.html">Tentang Kami</a>
+      <a href="kontak.html">Kontak</a>
+    </nav>
   </header>
-
-  <nav>
-    <a href="#">Beranda</a>
-    <a href="produk.html">Produk</a>
-    <a href="tentang.html">Tentang Kami</a>
-    <a href="kontak.html">Kontak</a>
-  </nav>
 
   <div class="clock" id="clock"></div>
 
@@ -179,7 +197,7 @@
     <p>Kami menyediakan berbagai produk fashion wanita terkini seperti blouse, celana, hijab, hingga aksesoris. Temukan penampilan terbaikmu bersama ASTI!</p>
   </main>
 
-  <section class="produk-unggulan" id="produk">
+  <section class="produk-unggulan">
     <h2>Produk Unggulan</h2>
     <div class="produk-list">
       <div class="produk-item">
@@ -218,7 +236,7 @@
     </div>
   </section>
 
-  <footer id="kontak">
+  <footer>
     <h3>Hubungi Kami</h3>
     <p>Email: astionlineshop@gmail.com | WA: 0812-3456-7890</p>
     <div class="sosmed">
@@ -236,6 +254,13 @@
     }
     setInterval(updateClock, 1000);
     updateClock();
+
+    const hamburger = document.getElementById('hamburger');
+    const nav = document.getElementById('nav');
+
+    hamburger.addEventListener('click', function() {
+      nav.classList.toggle('show');
+    });
   </script>
 
 </body>
