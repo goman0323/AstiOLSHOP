@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="google-site-verification" content="ecoEFH7UYTF2ngF5zmHiH1P6l97p3QRvJAnRtBM5kYY" />
   <title>ASTI Online Shop - Fashion Wanita Terbaru & Kekinian</title>
   <meta name="description" content="ASTI Online Shop menjual blouse, hijab, tas, dan aksesoris fashion wanita kekinian. Tampil stylish dan elegan setiap hari bersama ASTI.">
@@ -34,60 +34,90 @@
       background: linear-gradient(to right, #fce4ec, #f8bbd0);
       color: var(--text);
     }
+
     header {
       background: white;
-      padding: 1rem;
-      text-align: center;
-      position: relative;
+      padding: 1rem 1.5rem;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      position: relative;
     }
-    header h1 {
-      color: var(--primary);
-      font-size: 2rem;
-    }
-    header p {
-      color: #666;
-      font-size: 1rem;
-      margin-top: 0.5rem;
-    }
-    .hamburger {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      font-size: 1.8rem;
-      cursor: pointer;
-      color: var(--accent);
-      display: none;
-    }
-    nav {
+    .elegan-header {
       display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      background: var(--primary);
-      padding: 1rem;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo-area {
+      display: flex;
+      align-items: center;
       gap: 1rem;
     }
-    nav a {
-      background: white;
+    .logo-img {
+      height: 50px;
+      width: auto;
+    }
+    .brand-text h1 {
+      font-size: 1.8rem;
       color: var(--primary);
+      font-weight: 700;
+    }
+    .brand-text p {
+      font-size: 1rem;
+      color: #777;
+      font-weight: 400;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .nav-links a {
+      background: var(--primary);
+      color: white;
       text-decoration: none;
-      padding: 0.5rem 1rem;
+      padding: 0.5rem 1.2rem;
+      border-radius: 30px;
       font-weight: 600;
-      border-radius: 20px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: background 0.3s ease;
     }
-    nav a:hover {
-      background: var(--secondary);
-      transform: translateY(-2px);
-      color: var(--accent);
+    .nav-links a:hover {
+      background: var(--accent);
     }
+
+    .hamburger {
+      display: none;
+      font-size: 1.8rem;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+        flex-direction: column;
+        background: white;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 1rem 0;
+        box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        z-index: 10;
+      }
+      .nav-links.show {
+        display: flex;
+      }
+      .hamburger {
+        display: block;
+      }
+    }
+
     .clock {
       text-align: center;
       margin: 1rem 0;
       font-size: 1.2rem;
       color: var(--accent);
     }
+
     main {
       padding: 2rem;
       text-align: center;
@@ -103,6 +133,7 @@
       line-height: 1.6;
       font-size: 1.1rem;
     }
+
     .produk-unggulan, .testimoni {
       padding: 2rem 1rem;
       text-align: center;
@@ -145,6 +176,7 @@
       margin-top: 0.5rem;
       color: var(--primary);
     }
+
     footer {
       background: var(--primary);
       color: white;
@@ -161,33 +193,32 @@
     .sosmed a:hover {
       color: var(--secondary);
     }
-    @media (max-width: 768px) {
-      .hamburger {
-        display: block;
-      }
-      nav {
-        flex-direction: column;
-        display: none;
-      }
-      nav.show {
-        display: flex;
-      }
-    }
   </style>
 </head>
 
 <body>
 
   <header>
-    <h1>ASTI ONLINE SHOP</h1>
-    <p>Tampil cantik dan fashionable setiap hari bersama ASTI!</p>
-    <div class="hamburger" id="hamburger">☰</div>
-    <nav id="nav">
-      <a href="#">Beranda</a>
-      <a href="produk.html">Produk</a>
-      <a href="tentang.html">Tentang Kami</a>
-      <a href="kontak.html">Kontak</a>
-    </nav>
+    <div class="elegan-header">
+      <div class="logo-area">
+        <img src="logo-asti.png" alt="ASTI Logo" class="logo-img" />
+        <div class="brand-text">
+          <h1>ASTI</h1>
+          <p>Online Shop</p>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#">Beranda</a>
+        <a href="produk.html">Produk</a>
+        <a href="tentang.html">Tentang Kami</a>
+        <a href="kontak.html">Kontak</a>
+      </nav>
+
+      <div class="hamburger" id="hamburger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </div>
   </header>
 
   <div class="clock" id="clock"></div>
@@ -255,11 +286,12 @@
     setInterval(updateClock, 1000);
     updateClock();
 
+    // Toggle hamburger menu
     const hamburger = document.getElementById('hamburger');
-    const nav = document.getElementById('nav');
+    const navLinks = document.getElementById('navLinks');
 
-    hamburger.addEventListener('click', function() {
-      nav.classList.toggle('show');
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('show');
     });
   </script>
 
