@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ASTI ONLINE SHOP - Fashion Kekinian</title>
+   <link rel="icon" href="favicon.png" type="image/x-icon">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    :root {
+      --primary: #ec407a;
+      --secondary: #fce4ec;
+      --text: #333;
+      --accent: #d81b60;
+    }
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to right, #fce4ec, #f8bbd0);
+      color: var(--text);
+    }
+    header {
+      background: white;
+      color: var(--primary);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.2rem;
+      letter-spacing: 1px;
+      font-weight: 600;
+      color: var(--primary);
+    }
+    header p {
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+    .search-box {
+      max-width: 400px;
+      margin: 1rem auto;
+      display: flex;
+      justify-content: center;
+      position: relative;
+    }
+    .search-box input {
+      width: 100%;
+      padding: 0.8rem;
+      border-radius: 12px;
+      border: none;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      outline: none;
+      transition: box-shadow 0.3s ease;
+    }
+    .search-box input:focus {
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    }
+    .search-box button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      background: var(--accent);
+      border: none;
+      color: white;
+      padding: 0.8rem;
+      border-radius: 12px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .search-box button:hover {
+      background: #ad1457;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      padding: 2rem;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .product {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .product:hover {
+      transform: scale(1.03);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.2);
+    }
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .product-content {
+      padding: 1.2rem;
+      flex-grow: 1;
+    }
+    .product h2 {
+      margin: 0 0 0.5rem;
+      font-size: 1.5rem;
+      color: var(--primary);
+    }
+    .product p {
+      margin: 0 0 1rem;
+      line-height: 1.6;
+    }
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      padding: 0.7rem 1.2rem;
+      border-radius: 12px;
+      font-weight: 600;
+      display: inline-block;
+      transition: background 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+    .btn:hover {
+      background: #ad1457;
+    }
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #d81b60;
+      color: white;
+      padding: 0.8rem 1.5rem;
+      border-radius: 12px;
+      text-align: center;
+      font-weight: 600;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #ad1457;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>ASTI ONLINE SHOP</h1>
+  <p>Tampil modis dengan koleksi fashion terbaru dari ASTI!</p>
+</header>
+
+<div class="search-box">
+  <input type="text" id="search" placeholder="Cari produk..." oninput="searchProducts()">
+  <button type="button" onclick="searchProducts()">🔍</button>
+</div>
+
+<main class="container" id="product-container">
+</main>
+<script>
+  // Data produk
+  const products = [
+    {
+      name: 'Blouse Kekinian',
+      image: 'https://i.postimg.cc/tTF4jQv6/blouse-kekinian.jpg',
+      price: 'Rp125.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Blouse%20Kekinian'
+    },
+    {
+      name: 'Celana High Waist',
+      image: 'https://i.postimg.cc/CLcLY47c/celana-high-waist.jpg',
+      price: 'Rp150.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Celana%20High%20Waist'
+    },
+    {
+      name: 'Hijab Instan',
+      image: 'https://i.postimg.cc/TPDRVv6s/hijab-instan.jpg',
+      price: 'Rp65.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Hijab%20Instan'
+    },
+    {
+      name: 'Tas Mini Stylish',
+      image: 'https://i.postimg.cc/Hkfmsvy9/tas-mini-stylish.jpg',
+      price: 'Rp95.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Tas%20Mini%20Stylish'
+    },
+    {
+      name: 'Cardigan Rajut',
+      image: 'https://i.postimg.cc/pTvtK9k9/cardigan-rajut.jpg',
+      price: 'Rp135.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Cardigan%20Rajut'
+    },
+    {
+      name: 'Outer Kimono',
+      image: 'https://i.postimg.cc/T2CXW3bw/outer-kimono.jpg',
+      price: 'Rp120.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Outer%20Kimono'
+    },
+    {
+      name: 'Gamis Modern',
+      image: 'https://i.postimg.cc/QxCZgZgq/gamis-modern.jpg',
+      price: 'Rp180.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Gamis%20Modern'
+    },
+    {
+      name: 'Tunik Casual',
+      image: 'https://i.postimg.cc/LhKkspmM/tunik-casual.jpg',
+      price: 'Rp110.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Tunik%20Casual'
+    },
+    {
+      name: 'Rok Plisket',
+      image: 'https://i.postimg.cc/xdDrSkws/rok-plisket.jpg',
+      price: 'Rp95.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Rok%20Plisket'
+    },
+    {
+      name: 'Setelan Kulot & Blouse',
+      image: 'https://i.postimg.cc/fLC1X8JF/stelan-kulot-blouse.jpg',
+      price: 'Rp160.000',
+      link: 'https://wa.me/6281234567890?text=Halo%20ASTI,%20saya%20mau%20pesan%20Setelan%20Kulot%20dan%20Blouse'
+    }
+  ];
+
+  // Menampilkan produk
+  function displayProducts(products) {
+    const container = document.getElementById('product-container');
+    container.innerHTML = '';
+    products.forEach(product => {
+      const productHTML = 
+        `<div class="product">
+          <img src="${product.image}" alt="${product.name}">
+          <div class="product-content">
+            <h2>${product.name}</h2>
+            <p>${product.price}</p>
+            <a class="btn" href="${product.link}" target="_blank">Beli Sekarang</a>
+          </div>
+        </div>`;
+      container.innerHTML += productHTML;
+    });
+  }
+
+  // Fungsi pencarian produk
+  function searchProducts() {
+    const query = document.getElementById('search').value.toLowerCase();
+    const filteredProducts = products.filter(product =>
+      product.name.toLowerCase().includes(query)
+    );
+    displayProducts(filteredProducts);
+  }
+
+  // Fungsi tombol kembali
+  function goBack() {
+    window.history.back();
+  }
+
+  // Tampilkan semua produk saat halaman pertama dimuat
+  displayProducts(products);
+</script>
+
+</body>
+</html>
