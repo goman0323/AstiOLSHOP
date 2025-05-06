@@ -32,6 +32,7 @@
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(to right, #fce4ec, #f8bbd0);
       color: var(--text);
+      overflow-x: hidden;
     }
     header {
       background: white;
@@ -185,7 +186,6 @@
       color: var(--secondary);
     }
 
-    /* === Tombol WhatsApp === */
     .whatsapp-float {
       position: fixed;
       width: 60px;
@@ -210,9 +210,42 @@
       font-size: 28px;
       color: white;
     }
+
+    /* === Sakura Effect === */
+    .sakura-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      pointer-events: none;
+      width: 100%;
+      height: 100%;
+      z-index: 999;
+      overflow: hidden;
+    }
+
+    .sakura {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      background-image: url('https://i.postimg.cc/52Hb0khB/Sakura-PNG-Photo.png');
+      background-size: cover;
+      animation: fall linear infinite;
+      opacity: 0.8;
+    }
+
+    @keyframes fall {
+      0% {
+        transform: translateY(-10%) rotate(0deg);
+      }
+      100% {
+        transform: translateY(100vh) rotate(360deg);
+      }
+    }
   </style>
 </head>
 <body>
+
+  <div class="sakura-container"></div>
 
   <header>
     <div class="elegan-header">
@@ -310,6 +343,20 @@
     hamburger.addEventListener('click', () => {
       navLinks.classList.toggle('show');
     });
+
+    // Sakura Effect Script
+    function createSakura() {
+      const sakura = document.createElement('div');
+      sakura.classList.add('sakura');
+      sakura.style.left = Math.random() * window.innerWidth + 'px';
+      sakura.style.animationDuration = 5 + Math.random() * 5 + 's';
+      sakura.style.opacity = Math.random();
+      sakura.style.transform = `scale(${0.5 + Math.random()})`;
+      document.querySelector('.sakura-container').appendChild(sakura);
+
+      setTimeout(() => sakura.remove(), 10000);
+    }
+    setInterval(createSakura, 300);
   </script>
 
 </body>
