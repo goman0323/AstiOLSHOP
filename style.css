@@ -31,20 +31,32 @@
       align-items: center;
       gap: 1rem;
     }
+    .logo-link {
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+    }
     .logo-img {
-      height: 50px;
-      width: auto;
+      width: 50px;
+      margin-right: 10px;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .brand-text h1 {
-      font-size: 1.8rem;
-      color: var(--primary);
-      font-weight: 700;
+      margin: 0;
+      font-size: 20px;
+      color: #e91e63;
+      font-weight: bold;
     }
     .brand-text p {
-      font-size: 1rem;
-      color: #777;
-      font-weight: 400;
+      margin: 0;
+      font-size: 14px;
+      color: #666;
     }
+
     .nav-links {
       display: flex;
       gap: 1rem;
