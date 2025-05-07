@@ -6,7 +6,8 @@
   <title>Kontak | Asti OLShop</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
-   <link rel="icon" href="/AstiOLSHOP/favicon.png" type="image/x-icon">
+  <link rel="icon" href="/AstiOLSHOP/favicon.png" type="image/x-icon">
+
   <style>
     body {
       margin: 0;
@@ -70,6 +71,12 @@
       font-size: 1.2em;
     }
 
+    .medsos-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
     form input, form textarea {
       width: 100%;
       padding: 15px;
@@ -104,6 +111,13 @@
       background-color: #d81b60;
     }
 
+    .maps-container {
+      margin-top: 40px;
+      border: 4px solid #ec407a;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
     footer {
       margin-top: 40px;
       text-align: center;
@@ -113,25 +127,6 @@
       font-size: 0.9em;
     }
 
-    /* Tombol Kembali */
-    .back-btn {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      background-color: #ec407a;
-      color: white;
-      font-size: 1.2rem;
-      padding: 0.8rem 1.5rem;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .back-btn:hover {
-      background-color: #d81b60;
-    }
-
     @media (max-width: 768px) {
       .kontak-grid {
         flex-direction: column;
@@ -139,8 +134,9 @@
     }
   </style>
 </head>
+
 <body>
-    <header>
+  <header>
     <h1>Hubungi Asti OLShop</h1>
   </header>
 
@@ -148,17 +144,17 @@
     <div class="kontak-grid">
       <div class="kontak-item">
         <h3>Info Kontak</h3>
-        <p><i class="fas fa-map-marker-alt"></i> Jl. Mawar No.123, Medan</p>
+        <p><i class="fas fa-map-marker-alt"></i> Jl. Masjid, Seruway, Aceh Tamiang</p>
         <p><i class="fas fa-envelope"></i> <a href="mailto:astiolshop@gmail.com">astiolshop@gmail.com</a></p>
         <p><i class="fas fa-phone"></i> <a href="tel:+6281234567890">+62 812-3456-7890</a></p>
       </div>
 
       <div class="kontak-item">
         <h3>Sosial Media</h3>
-        <p><i class="fab fa-instagram"></i> <a href="https://instagram.com/astiolshop" target="_blank">@astiolshop</a></p>
-        <p><i class="fab fa-facebook"></i> <a href="https://facebook.com/astiolshop" target="_blank">Asti OLShop</a></p>
-        <p><i class="fab fa-tiktok"></i> <a href="https://tiktok.com/@astiolshop" target="_blank">@astiolshop</a></p>
-        <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6281234567890" target="_blank">WhatsApp Kami</a></p>
+        <p class="medsos-logo"><i class="fab fa-instagram"></i> <a href="https://instagram.com/astiolshop" target="_blank">@astiolshop</a></p>
+        <p class="medsos-logo"><i class="fab fa-facebook"></i> <a href="https://facebook.com/astiolshop" target="_blank">Asti OLShop</a></p>
+        <p class="medsos-logo"><i class="fab fa-tiktok"></i> <a href="https://tiktok.com/@astiolshop" target="_blank">@astiolshop</a></p>
+        <p class="medsos-logo"><i class="fab fa-whatsapp"></i> <a href="https://wa.me/6281234567890" target="_blank">WhatsApp Kami</a></p>
       </div>
     </div>
 
@@ -171,11 +167,23 @@
         <button type="submit">Kirim Pesan</button>
       </form>
     </div>
+
+    <div class="maps-container">
+    <iframe 
+     src="https://www.google.com/maps?q=4.350080,98.181692&hl=id&z=14&output=embed" 
+     width="100%" 
+     height="400" 
+     style="border:0;" 
+     allowfullscreen="" 
+     loading="lazy" 
+     referrerpolicy="no-referrer-when-downgrade">
+     </iframe>
+ 
+    </div>
   </div>
 
   <footer>
     &copy; 2025 Asti OLShop. All rights reserved.
   </footer>
-
 </body>
 </html>
